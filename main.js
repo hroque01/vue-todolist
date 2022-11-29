@@ -28,8 +28,13 @@ createApp({
         } else {
             this.tasks.push({ text: this.newTask }); 
         }
-           
+
+        this.newTask = ''
+    },
+    removeTask(indexArgument){
+        this.tasks.splice(indexArgument, 1);
     }
+    
   }
 }).mount('#app')
 
