@@ -25,18 +25,16 @@ createApp({
     addTask(){
         if (this.newTask.length < 5 || this.newTask === ''){
 
-            this.error=true;
+            this.error = true;
 
         } else {
 
             this.tasks.push({ text: this.newTask });
 
-            this.error=false;
+            this.error = false;
 
-            this.newTask = ''
+            this.newTask = '';
         }
-
-        
     },
     removeTask(indexArgument){
         this.tasks.splice(indexArgument, 1);

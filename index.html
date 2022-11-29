@@ -15,26 +15,33 @@
 </head>
 <body>
     <div id="app">
-        <h1>ToDoList</h1>
-        <div class="container">
-            <input type="text" placeholder="Add New Task" v-model="newTask" @KeyUp.enter="addTask">
 
-            <div class="red-text" v-if="error">
-                Inserisci almeno 5 caratteri
+        <div class="container">
+
+            <h1>ToDoList</h1>
+
+            <div class="col-12">
+                <input type="text" placeholder="Add New Task" v-model="newTask" @KeyUp.enter="addTask">
+
+                <button @click="addTask">Aggiungi</button>
+
+                <div class="red-text" v-if="error">
+                    Inserisci almeno 5 caratteri
+                </div>
             </div>
 
-            <button @click="addTask">Aggiungi</button>
-
             <div class="task-container">
-                <ul>
+
+                <ul v-if="tasks.length > 0">
                     <li v-for="(task, index) in tasks">
                         {{task.text}}
                         <i class="fa-solid fa-x" @click="removeTask(index)"></i>
                     </li>
                 </ul>
-                <!-- <div class="red-text">
+
+                <div class="red-text" v-else>
                     Non ci sono task
-                </div> -->
+                </div>
             </div>
         </div>
         
