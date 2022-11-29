@@ -29,7 +29,7 @@ createApp({
 
         } else {
 
-            this.tasks.push({ text: this.newTask });
+            this.tasks.push({ text: this.newTask, done: false });
 
             this.error = false;
 
