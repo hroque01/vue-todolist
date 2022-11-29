@@ -16,31 +16,33 @@
 <body>
     <div id="app">
 
-        <div class="container">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
 
             <h1>ToDoList</h1>
 
-            <div class="col-12">
-                <input type="text" placeholder="Add New Task" v-model="newTask" @KeyUp.enter="addTask">
+            <div class="col-6 border rounded justify-content-center p-3">
+                <div class="d-flex justify-content-center p-3 ">
+                    <input class="w-50" type="text" placeholder="Add New Task" v-model="newTask" @KeyUp.enter="addTask">
 
-                <button @click="addTask">Aggiungi</button>
+                    <button class="btn btn-outline-dark navigation" @click="addTask">Aggiungi</button>
 
-                <div class="red-text" v-if="error">
-                    Inserisci almeno 5 caratteri
+                    <div class="red-text" v-if="error">
+                        Inserisci almeno 5 caratteri
+                    </div>
                 </div>
-            </div>
 
-            <div class="task-container">
+                <div class="task-container">
 
-                <ul v-if="tasks.length > 0">
-                    <li v-for="(task, index) in tasks">
-                        {{task.text}}
-                        <i class="fa-solid fa-x" @click="removeTask(index)"></i>
-                    </li>
-                </ul>
+                    <ul class="border rounded p-4" v-if="tasks.length > 0">
+                        <li class="d-flex justify-content-between" v-for="(task, index) in tasks">
+                            <span class="m-2">{{task.text}}</span>
+                            <i class="fa-solid fa-trash border rounded p-2 m-2" @click="removeTask(index)"></i>
+                        </li>
+                    </ul>
 
-                <div class="red-text" v-else>
-                    Non ci sono task
+                    <div class="red-text" v-else>
+                        Non ci sono task!
+                    </div>
                 </div>
             </div>
         </div>
